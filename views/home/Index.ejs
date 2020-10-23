@@ -1,0 +1,14 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<p><b>chemical list</b></p>
+<% for(var i=0; i < chemical.length; i++) { %>
+ <ul>
+ <li>chemical id: <%= chemical[i].chemical_id %></</li>
+ <li>chemical name: <%= chemical[i].chemical_name %></</li>
+ <li>solid quantity: <%= chemical[i].chemical_solid_quantity %></</li>
+ <li>liquid quanitity: <%= chemical[i].chemical_liquid_quantity %></</li>
+ <li>whmis class: <%= chemical[i].whmis_class %></</li>
+ <li>staff member id: <%= chemical[i].staff_member_id %></</li>
+ <li>room id: <%= chemical[i].room_id %></</li>
+ <li>sds id: <%= chemical[i].sds_id %></</li>
+ </ul>
+<% } %>
