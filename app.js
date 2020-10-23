@@ -2,6 +2,7 @@ var express = require('express');
 var http    = require('http');
 var path    = require('path');
 var engine  = require('ejs-locals');
+const { normalize } = require('path');
 var app     = express();
 
 // Parse URL-encoded bodies (as sent by HTML forms)
@@ -13,12 +14,28 @@ app.use(express.json());
 require('./router')(app);
 app.set('port', 1338);
 
+function normalizePort(val) {
+  var port = parseInt(val, 10);
 
- // Enable routing and use port 1337.
- require('./router')(app);
- app.set('port', 1338);
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
 
- // Set up ejs templating.
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+// Enable routing and use port 3000.
+var port = normalizePort(process.env.PORT || '3000');
+require('./router')(app);
+app.set('port', port);
+
+// Set up ejs templating.
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 

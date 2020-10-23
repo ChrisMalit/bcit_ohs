@@ -14,7 +14,7 @@ class DB {
     }
 
     async getChemical() {
-        const result = await pool.query('SELECT * FROM building');
+        const result = await pool.query('SELECT * FROM chemical');
         return result;
         }
        

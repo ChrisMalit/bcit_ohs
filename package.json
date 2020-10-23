@@ -4,7 +4,8 @@
   "description": "BCIT OHS Web App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,6 @@
     "passport": "latest"
   },
   "devDependencies": {
-    "mysql2": "^2.2.5"
+    "mysql2": "latest"
   }
 }
